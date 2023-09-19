@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import Success from './Success';
 import Main from './Main';
-import './App.css';
 
 function App() {
   const [success, setSucess] = useState(false);
+  const [email, setEmail] = useState('');
 
   return success ? (
-    <Success email={'hi@gmail.com'} />
+    <Success email={email} />
   ) : (
-    <Main onSuccess={() => setSucess(true)} />
+    <Main onSuccess={() => setSucess(true)} email={email} setEmail={setEmail} />
   );
 }
 

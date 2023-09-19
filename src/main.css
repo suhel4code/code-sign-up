@@ -85,6 +85,10 @@ button:disabled {
   background-color: hsl(235, 18%, 26%);
 }
 
+span {
+  font-weight: bold;
+}
+
 @media (min-width: 720px) {
   .center-div {
     height: 100vh;

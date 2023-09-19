@@ -2,6 +2,7 @@ import mobileSignUp from './assets/images/illustration-sign-up-mobile.svg';
 import desktopSignUp from './assets/images/illustration-sign-up-desktop.svg';
 import check from './assets/images/icon-list.svg';
 import { useEffect, useRef, useState } from 'react';
+import './main.css';
 
 function getDimension() {
   return {
@@ -10,10 +11,9 @@ function getDimension() {
   };
 }
 
-function Main({ onSuccess }) {
+function Main({ onSuccess, email, setEmail }) {
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [dimension, setDimension] = useState(getDimension());
-  const [email, setEmail] = useState('');
 
   const inputRef = useRef(null);
   const imgToShow = dimension.width > 724 ? desktopSignUp : mobileSignUp;
@@ -21,9 +21,6 @@ function Main({ onSuccess }) {
   const classNamePara = inputRef.current && !isEmailValid ? 'error-msg' : '';
   const classNameInput =
     inputRef.current && !isEmailValid ? 'error-msg input-error' : '';
-
-  console.log(classNamePara);
-  console.log(classNameInput);
 
   const validateEmail = (email) => {
     return email.match(
